@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "w4qJpEg85CA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alvaro\\source\\repos\\WebApiAgent2\\WebApiAgent2\\WebApiAgent2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.agents.ai\\1.0.0-preview.251110.2\\microsoft.agents.ai.1.0.0-preview.251110.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.agents.ai.abstractions\\1.0.0-preview.251110.2\\microsoft.agents.ai.abstractions.1.0.0-preview.251110.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.agents.ai.devui\\1.0.0-preview.251110.2\\microsoft.agents.ai.devui.1.0.0-preview.251110.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.agents.ai.hosting\\1.0.0-preview.251110.2\\microsoft.agents.ai.hosting.1.0.0-preview.251110.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.agents.ai.hosting.openai\\1.0.0-alpha.251110.2\\microsoft.agents.ai.hosting.openai.1.0.0-alpha.251110.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.agents.ai.openai\\1.0.0-preview.251110.2\\microsoft.agents.ai.openai.1.0.0-preview.251110.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.agents.ai.workflows\\1.0.0-preview.251110.2\\microsoft.agents.ai.workflows.1.0.0-preview.251110.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.extensions.ai\\9.10.2\\microsoft.extensions.ai.9.10.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\9.10.2\\microsoft.extensions.ai.abstractions.9.10.2.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.extensions.ai.openai\\9.10.2-preview.1.25552.1\\microsoft.extensions.ai.openai.9.10.2-preview.1.25552.1.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\microsoft.extensions.vectordata.abstractions\\9.7.0\\microsoft.extensions.vectordata.abstractions.9.7.0.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\openai\\2.6.0\\openai.2.6.0.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\opentelemetry.api\\1.13.1\\opentelemetry.api.1.13.1.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\system.clientmodel\\1.7.0\\system.clientmodel.1.7.0.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\system.memory.data\\8.0.1\\system.memory.data.8.0.1.nupkg.sha512",
+    "C:\\Users\\Alvaro\\.nuget\\packages\\system.numerics.tensors\\9.0.10\\system.numerics.tensors.9.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
