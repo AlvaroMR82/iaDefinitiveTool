@@ -1,0 +1,62 @@
+using CortizoERP.Base;
+using System;
+using System.Collections;
+using System.Drawing;
+using static CortizoERP.Base.Comun;
+using static CortizoERP.Etiquetas.Funciones;
+
+namespace CortizoERP.Etiquetas
+{
+    public class BarcodeEan13 : IElemento
+    {
+        public Posicion Posicion { get; set; }
+        public Tamaño Tamaño { get; set; }
+        public Hashtable Datos { get; set; }
+        public string Origen { get; set; }
+        public TipoOrigen Tipo { get; set; }
+        public bool ShowLabel { get; set; } = true;
+
+        public BarcodeEan13()
+        {
+            Posicion = new Posicion();
+            Tamaño = new Tamaño();
+            Tipo = TipoOrigen.Dato;
+        }
+        public object Clone()
+        {
+            var result = new BarcodeEan13();
+            result.Posicion = Comun.Clona(this.Posicion);
+            result.Tamaño = Comun.Clona(this.Tamaño);
+            result.Datos = this.Datos;
+            result.Origen = (string)this.Origen?.Clone();
+            result.Tipo = this.Tipo;
+            result.ShowLabel = this.ShowLabel;
+            return result;
+        }
+        public void Imprimir(Graphics graphics)
+        {
+            var codigo = ObtenerOrigen(Tipo, Origen, Datos);
+            if (!EOV(codigo))
+            {
+                int ancho = Tamaño.Ancho;
+                int alto = Tamaño.Alto;
+                if (alto <= 0) alto = 50;
+                if (ancho <= 0) ancho = (int)(alto * 1.5);
+                // EAN-13 ten 95 módulos, el ancho mínimo debe ser >= 95px
+                if (ancho < 120) ancho = 120;
+
+                BarcodeLib.Barcode b = new BarcodeLib.Barcode();
+                b.IncludeLabel = ShowLabel;
+                if (ShowLabel)
+                {
+                    b.LabelFont = new Font("Arial", 8, FontStyle.Regular);
+                    b.LabelPosition = BarcodeLib.LabelPositions.BOTTOMCENTER;
+                }
+                // Generar imagen con margen extra para el primer dígito del EAN-13
+                int margenLabel = ShowLabel ? 14 : 0;
+                var imagen = b.Encode(BarcodeLib.TYPE.EAN13, codigo, ancho + margenLabel, alto);
+                graphics.DrawImage(imagen, Posicion.X - (margenLabel / 2), Posicion.Y, ancho + margenLabel, alto);
+            }
+        }
+    }
+}
