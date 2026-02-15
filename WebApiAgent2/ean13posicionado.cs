@@ -1,4 +1,6 @@
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 
 namespace cbprueba1
 {
@@ -34,22 +36,26 @@ namespace cbprueba1
             //var imagen = b.Encode(BarcodeLib.TYPE.EAN13, codigo, ancho + margenLabel, alto);
 
             using (var g = Graphics.FromImage(imgComplete))
-            using (var sformat = new StringFormat()
-
+            using (var sformat = (StringFormat)StringFormat.GenericTypographic.Clone())
             {
+                // Improve rendering quality and consistency
+                g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.CompositingQuality = CompositingQuality.HighQuality;
 
-                    Alignment = StringAlignment.Center,
-                    LineAlignment = StringAlignment.Far,
-
-            })    
-            {
+                sformat.Alignment = StringAlignment.Center;
+                sformat.LineAlignment = StringAlignment.Far;
 
                 g.Clear(Color.Transparent);
                 g.DrawImage(codbarean13, 10, 10);
-                g.DrawString(digito1, new Font("Arial", 6), Brushes.Black,x-x+6, y-5  ,sformat);
-                g.DrawString(digito2, new Font("Arial", 6), Brushes.Black, x - 20, y-5, sformat);
-                g.DrawString(digito3, new Font("Arial", 6), Brushes.Black, x+24 , y - 5, sformat);
 
+                using (var font = new Font("Arial", 6, FontStyle.Regular))
+                {
+                    g.DrawString(digito1, font, Brushes.Black, x - x + 6, y - 5, sformat);
+                    g.DrawString(digito2, font, Brushes.Black, x - 20, y - 5, sformat);
+                    g.DrawString(digito3, font, Brushes.Black, x + 24, y - 5, sformat);
+                }
             }
 
             BCimage.Image = imgComplete;
